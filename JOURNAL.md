@@ -3,6 +3,7 @@ title: "The Aegis-T17 Chronicle"
 author: "Slimer"
 description: "Pocket-sized hand held gaming console"
 created_at: "2026-10-10"
+total time spent: 52.7h
 ---
 
 # 2026-10-25: Entry 28
