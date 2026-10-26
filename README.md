@@ -1,8 +1,8 @@
 # THE AEGIS-T17 CHRONICLE
 
-**A Pocket-Sized, Steampunk-Inspired Handheld Console**
+*This is a pocket sized Steampunk inspired handheld gaming console featuring four games*
 
-This is the repository for **The Aegis-T17 Chronicle**, a custom-engineered, fully playable handheld console powered by the XIAO ESP32-C3 as the main brain. Housed in a custom 3D-printed steampunk casing with a voronoi design backplate, this device is a fusion of steampunk aesthetics and modern embedded C++ programming.
+This is the repository for **The Aegis-T17 Chronicle**, a fully playable handheld console powered by the XIAO ESP32-C3 as the main brain. Housed in a 3D-printed steampunk casing with a voronoi design backplate, this device is a combination of steampunk aesthetics and embedded systems.
 
 ![The Aegis-T17 Chronicle](THE-AEGIS-T17-CHRONICLE.jpg)
 
@@ -11,64 +11,49 @@ This is the repository for **The Aegis-T17 Chronicle**, a custom-engineered, ful
 ## The Games
 The console features a main menu system that boots into four distinct games:
 
-*   **Tamagotchi:** A virtual pet simulator with persistent state tracking (Hunger, Happiness, Energy), non-blocking timers, and dynamic PROGMEM face sprites.
-*   **Flappy Bird:** A copy of the famous Flappy Bird game with randomized pipe generation, custom bird sprite and memory management using flash-stored bitmap rendering.
-*   **Dino Run:** A copy of the classic infinite chrome dino run with velocity-based jump mechanics and inifnite obstacles.
-*   **Platformer:** A custom 2D platformer featuring a Axis-Aligned Bounding Box (AABB) physics engine, separated axis collision resolution, friction, and dynamic level loading.
+*   **Tamagotchi:** A pet simulator with stats like hunger, happiness and energy which decrease with time. Goal is to make the pet survive as long as possible.(Completed)
+*   **Flappy Bird:** A copy of the famous Flappy Bird game. (Completed)
+*   **Dino Run:** A copy of the classic infinite chrome dino run inifnite obstacles. (Completed)
+*   **Platformer:** A platformer game with one level for now, will add more to it (Not completed)
 
 ---
 
 ## Hardware Specifications ("Steam Driven Electronics")
 The Aegis-T17 was designed with a minimal footprint, utilizing the following hardware components:
 
-*   **Microcontroller:** Seeed Studio XIAO ESP32-C3
-*   **Display:** 0.96" SSD1306 OLED Screen (128x64 resolution)
-*   **Inputs:** 3x Tactile Push Buttons
-*   **Audio:** Piezo Buzzer for sound effects
-*   **Power:** 3.7V LiPo Battery
-*   **Casing:** Custom 3D-printed Steampunk Casing featuring a Snap-Fit Battery Compartment, Voronoi patterned backplate, and a slot for a Button Compass.
-*   **PCB** Custom designed PCB which houses all the parts on it and fits perfectly in the casing
-
----
-
-## Software Architecture
-The software avoids a single gigantic file in favor of a clean, state-driven C++ architecture:
-
-*   `main.ino`: Handles the main menu UI, global state switching, and hardware initialization.
-*   **Modular Game Files:** Each game is isolated into its own `.cpp` and `.h` files (e.g., `Platformer.cpp`, `Tamagotchi.cpp`).
-*   **Custom Physics Engine:** The platformer utilizes a custom-written engine for collision checks, friction, etc.
-*   **Zero-Copy Rendering:** Sprites are stored in `PROGMEM` as hexadecimal arrays and drawn directly to the OLED using memory pointers to save RAM.
-*   **Consistent Frame Pacing:** Games utilize non-blocking `millis()` delta-time checks to maintain a strict ~30FPS (33ms) physics update loop.
-
----
-
-## Getting Started
+*   MCU: XIAO ESP32-C3
+*   Display: 0.96" SSD1306 OLED display (Resolution: 128x64)
+*   Buttons: 3x Tactile Push Buttons
+*   Sound: Passive Buzzer
+*   Power Source: 3.7V 503040 LiPo Battery
+*   Enclosure: 3D-printed Steampunk Casing having a snap fit battery compartment, voronoi patterned backplate, and a slot for a Button Compass for added steampunk vibe.
+*   PCB: Custom designed PCB which houses all the parts on it and fits perfectly in the casing
 
 ### Prerequisites
 *   Arduino IDE
-*   Board Manager: **esp32 by Espressif Systems** (Select Seeed Studio XIAO ESP32C3)
-*   Library: **Adafruit SSD1306** and **Adafruit GFX Library**
+*   Board Manager: esp32 by Espressif Systems (Select XIAO ESP32C3 at the top)
+*   Library: Adafruit SSD1306 and Adafruit GFX Library
 
 ### Wiring Guide
 ![Wiring Diagram](schematic.png)
-*   **OLED Display:** SDA -> ESP32 Pin 5 | SCL -> ESP32 Pin 6 | VCC -> 3.3V | GND -> GND
+*   **0.96" OLED Display:**Connect SDA to ESP32 Pin 5 | SCL to ESP32 Pin 6 | VCC to 3.3V | GND to GND
 *   **Buttons (with INPUT_PULLUP):**
-    *   Left Button -> Pin 1
-    *   Middle/Jump Button -> Pin 2
-    *   Right Button -> Pin 3
-*   **Piezo Buzzer:** Positive -> Pin 10 | Ground -> GND
+    *   Left Button to Pin 1
+    *   Middle/Jump Button to Pin 2
+    *   Right Button to Pin 3
+*   **Piezo Buzzer:** Positive to Pin 10 | Ground to GND
 
 
 ### Installation
-1. Clone this repository.
-2. Open the main `.ino` file in the Arduino IDE.
-3. Ensure all `.cpp` and `.h` files are in the same directory.
-4. Compile and flash to the XIAO ESP32-C3.
+1. Clone or download this repository into your desired folder
+2. Open the `main.ino` file in the Arduino IDE.
+3. Make sure all `.cpp` and `.h` files are in the same folder.
+4. Verify and Upload to the selected board.
 
 ---
 
-## 📜 Credits
-*Designed, Engineered, and Programmed by* **SLIMER**.
+## Credits
+Designed by **SLIMER**.
 
-*“Where steam-driven aesthetics meet modern microcontrollers.”*
+*“Where steam-driven aesthetics meet modern electronics.”*
 ```eof
